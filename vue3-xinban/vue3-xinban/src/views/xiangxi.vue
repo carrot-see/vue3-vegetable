@@ -81,8 +81,8 @@ onMounted( async ()=>{
     <!-- 图片轮播 -->
         <div class="lunbo">
             <el-carousel height="300px">
-            <el-carousel-item v-for="item in list.img" :key="item" >
-                <img  :src="item" :title="list.title"/>{{ item }}
+            <el-carousel-item v-for="item in 5" :key="item" >
+                <img  :src="list.image" :title="list.title"/>{{ item }}
             </el-carousel-item>
             </el-carousel>
         </div>
@@ -134,10 +134,6 @@ onMounted( async ()=>{
 }
 .el-carousel__item{
     background-color: pink;
-    width: 100%;
-    height: 100%;
-}
-.el-carousel__item img{
     width: 100%;
     height: 100%;
 }

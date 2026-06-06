@@ -187,40 +187,6 @@ app.get ('/tu', (req,res) => {
         }
     })
 })
-// 添加餐品
-app.post('/tu/add',(req,res)=>{
-    const i = req.body
-    const img = JSON.stringify(i.list.img)
-    const {text,qian,pin,text1,leixing} = i.list
-    const name = i.user
-    db.query('insert into chanpin (img,text,title,qian,pin,text1,leixing,user) values(?,?,"点击了解",?,?,?,?,?)',[img,text,qian,pin,text1,leixing,name],(err,sesule)=>{
-        if(err){
-            console.log(err+'错误');
-            return
-        }else{
-            // 重新查看这个账户的数据来进行重新筛选数组进行保存user的添加产品的json的记录中
-                db.query(`select id from chanpin where user = ?`,[name],(err,sesule)=>{
-                    if(err){
-                        console.log(err);
-                        return
-                    }else{
-                        const arr = JSON.stringify(sesule.map(item => item.id))
-                        db.query('update user set creatchanpin=? where id=?',[arr,name],(err,sesule)=>{
-                            if(err){
-                                console.log(err);
-                                return
-                            }else{
-                                res.send({
-                                    code:1,
-                                    text:'添加成功'
-                                })
-                            }
-                        })
-                    }
-                })
-        }
-    })
-})
 //搜索的内容的搜索
 app.post ('/postshaixuan',(req,res) => {
     //综合/产量/价格/名字  进行查找
@@ -341,7 +307,7 @@ app.post('/xiangxi',(req,res)=>{
             console.log(err+'错误');
             return
         }else{
-        
+            
             res.send({
                 code:1,
                 sesule:sesule[0]
@@ -432,7 +398,6 @@ app.put('/delbuy/:id',(req,res)=>{
 app.post('/getidarray',(req,res)=>{
     const id = req.body
     // // 就是那逗号隔开
-    console.log(id)
     db.query('select * from chanpin where id in (?)',[id],(err,sesult)=>{
         if(err){
             res.send({
@@ -506,7 +471,7 @@ app.post(`/shu`,(req,res)=>{
 })
 
 
-app.listen(3001,()=>{
-    console.log("http://127.0.0.1:3001/select");
+app.listen(3000,()=>{
+    console.log("http://127.0.0.1:3000/select");
     
 })

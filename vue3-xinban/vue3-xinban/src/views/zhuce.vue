@@ -45,7 +45,6 @@
                     <button @click="tijiao(1)">登录</button>
                 </div>
         </div>
-        <button style="border:0;color:#FF4D4F;" @click="delbd()">退出登录</button>
   </div>
 </template>
 
@@ -66,7 +65,7 @@ export default {
                 name: '',
                 password: '',
                 yanzhengma: '',
-                shoucang:'',
+                shoucang:''
             },
             number:'',
             txnumber:'获取图证码',
@@ -163,10 +162,6 @@ export default {
             }
 
         },
-        delbd(){
-            localStorage.removeItem('user')
-            this.user = {}
-        }
     },
     unmounted(){
         clearInterval(this.timer)

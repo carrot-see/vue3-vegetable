@@ -1,0 +1,5 @@
+运行指令
+主要文件是 app.js文件
+node app.js
+数据库是myjs.sql
+在app.js中第12行的密码改为自己的数据库密码

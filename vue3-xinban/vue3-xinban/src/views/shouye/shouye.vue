@@ -54,7 +54,7 @@ const ifColor = ref(localStorage.getItem('ifColor')?true:false)
 .router-view{
   width: 50%;
   margin: 50px auto;
-  padding: 20px 40px;
+  padding: 0 20px;
   border-left:1px solid #cccccc9d;
   border-right:1px solid #cccccc9d;
   border-radius:15px;

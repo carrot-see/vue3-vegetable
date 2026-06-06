@@ -6,7 +6,6 @@
         <div class="user-info1">
             <p>用户ID：{{ this.user.id }}</p>
             <p>用户名：{{ this.user.name }}</p>
-            <p @click="create">是否创建商品：<div>点击后可创建商品</div></p>
             <button @click="this.$router.push('/zhuce')">修改用户信息</button>
         </div>
          <!-- 用户的需要信息 -->
@@ -83,9 +82,6 @@ export default {
             const res2 =  await getidarray(this.user.buy)
             this.gouwuche = res1
             this.buy = res2
-        },
-        create(){
-            this.$router.push('/create')
         }
     },
     mounted(){
@@ -104,26 +100,6 @@ export default {
     margin: 10px 0;
     border-bottom:1px solid #ccc;
 }
-.user-info1>p:nth-child(3){
-    position: relative;
-    cursor: pointer;
-}
-.user-info1>p:nth-child(3):hover div{
-    display: block;
-}
-.user-info1>p:nth-child(3) div{
-    display: none;
-    width: 100px;
-    position: absolute;
-    top:0px;
-    left:-130px;
-    border:1px solid #ccc;
-    border-radius:20px 50% 50% 20px;
-
-    padding: 10px 10px;
-    z-index:100;
-}
-
 .user-info2{
     width:100%;
     border-left:1px solid #cccccc91;

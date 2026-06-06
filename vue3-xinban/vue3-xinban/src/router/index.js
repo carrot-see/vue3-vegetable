@@ -7,13 +7,11 @@ const shoucang = () => import('@/views/shouye/shoucang.vue')
 const zhuce = () => import('@/views/zhuce.vue')
 const suosou = () => import('@/views/suosou.vue')
 const xiangxi = () => import('@/views/xiangxi.vue')
-const create = () => import('@/views/create.vue')
 
 const routes = [
   { path: '/zhuce', component: zhuce },
   {path:'/sousuo',component:suosou},
   {path:'/xiangxi/:id',component:xiangxi},
-  { path:'/create', component: create},
   {
     path: '/',
     component: shouye,
